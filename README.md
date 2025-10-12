@@ -1,1 +1,1 @@
-# mai-lab-calculator
+# Документация
