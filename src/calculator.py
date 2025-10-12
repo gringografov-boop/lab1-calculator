@@ -2,7 +2,6 @@ import re
 import sys
 import warnings
 
-
 class Calculator:
     def __init__(self):
         self.precedence = {
@@ -18,9 +17,6 @@ class Calculator:
         }
 
     def tokenize(self, expr):
-        if not expr or not expr.strip():
-            raise ValueError("Пустое выражение")
-            
         expr_nospace = ''.join(ch for ch in expr if ch != ' ')
         index_map = [i for i, ch in enumerate(expr) if ch != ' ']
         pattern = re.compile(r'(?P<number>\d*\.\d+|\d+)|(?P<op>\*\*|//|[+\-*/%()])')
@@ -126,3 +122,18 @@ class Calculator:
 
     def calculate(self, expr):
         return self.eval_rpn(self.to_rpn(self.tokenize(expr)))
+
+def main():
+    calc = Calculator()
+    try:
+        expr = input("Введите выражение: ")
+        if not expr.strip():
+            print("Ошибка: пустое выражение")
+            return
+        res = calc.calculate(expr)
+        print(f"Результат: {res:.2f}")
+    except Exception as e:
+        print(f"Ошибка: {e}")
+
+if __name__ == '__main__':
+    main()
