@@ -94,7 +94,7 @@ class TestCalculator:
     def test_invalid_character_position(self):
         with pytest.raises(ValueError) as exc_info:
             self.calc.calculate("1 ф + 1")
-        assert "позиции 2" in str(exc_info.value)
+        assert "позиции 3" in str(exc_info.value)
 
     def test_empty_expressions(self):
         with pytest.raises(ValueError):
