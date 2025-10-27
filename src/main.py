@@ -1,6 +1,5 @@
 import re
 import sys
-import warnings
 
 class Calculator:
     def __init__(self):
